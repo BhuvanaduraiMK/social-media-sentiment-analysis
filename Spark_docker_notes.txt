@@ -1,0 +1,56 @@
+# -----------------------------------------------
+# Spark + Docker Notes for Sentiment Analysis Project
+# Author: Bhuvanadurai M.
+# -----------------------------------------------
+
+# ✅ Spark Run Environment: Bitnami Spark Docker Image
+# Website: https://hub.docker.com/r/bitnami/spark
+
+# -----------------------------------------------
+# Step 1: Download the dataset manually from Kaggle
+# Link: https://www.kaggle.com/datasets/kazanova/sentiment140
+# Place the file as: data/training.csv
+# -----------------------------------------------
+
+
+# -----------------------------------------------
+# Step 2: Run Spark container using Docker
+# -----------------------------------------------
+
+# For Linux/macOS
+docker run -it --rm \
+  -v $(pwd):/auth/bitnami/spark \
+  bitnami/spark pyspark
+
+# For Windows CMD or PowerShell (change path as needed)
+docker run -it --rm ^
+  -v C:\Users\Bhuvana\Desktop\social-media-sentiment-analysis:/auth/bitnami/spark ^
+  bitnami/spark pyspark
+
+
+# -----------------------------------------------
+# Step 3: Inside Docker Container - Run Python Files
+# -----------------------------------------------
+
+python /auth/bitnami/spark/load_data.py
+python /auth/bitnami/spark/classifiers/logistic_regression.py
+python /auth/bitnami/spark/classifiers/naive_bayes.py
+python /auth/bitnami/spark/classifiers/rf_classifier.py
+
+
+# -----------------------------------------------
+# Troubleshooting Notes
+# -----------------------------------------------
+
+# 🔹 If Spark container exits immediately:
+# Check dataset path and mount is correct
+
+# 🔹 If you get permission errors:
+# Ensure Docker is allowed full file access (especially on Windows)
+
+# 🔹 Want to test Spark version?
+spark-submit --version
+
+# -----------------------------------------------
+# End of Notes
+# -----------------------------------------------
