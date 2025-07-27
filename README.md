@@ -70,7 +70,7 @@ social-media-sentiment-analysis/
 
 ### 🐳 Step 2: Run Spark Container with Docker
 
-```bash
+
 docker run -it --rm \
   -v $(pwd):/auth/bitnami/spark \
   bitnami/spark pyspark
@@ -96,4 +96,4 @@ Bhuvanadurai M.
 Final Year B.E (CSE - Data Science)
 Annamalai University
 GitHub: https://github.com/BhuvanaduraiMK
-
+LinkedIn:https://www.linkedin.com/in/bhuvanadurai-m-1312a7248/
